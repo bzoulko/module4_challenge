@@ -32,3 +32,4 @@ The game starts when the "Start Quiz" button is pressed. The game is over when a
 
 * Link to Deployed App:  https://github.com/bzoulko/module4_challenge.git
 
+![image](https://user-images.githubusercontent.com/108200823/188766783-9fcef5e1-0279-4e5a-bf8c-28ed1b040d90.png)
