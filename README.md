@@ -30,5 +30,5 @@ The game starts when the "Start Quiz" button is pressed. The game is over when a
 
 * Included "reset.css" to this project.
 
-* Link to Deployed App:  https://bzoulko.github.io/module4_challenge/
+* Link to Deployed App:  https://github.com/bzoulko/module4_challenge.git
 
