@@ -1,0 +1,74 @@
+<!-- 
+    Created:    08/31/2022 
+    Programmer: Brian Zoulko
+    Notes:      Devopled a timed code taking quiz that will challenge the user 
+                from the beginning to the end.
+
+      Single space:     &nbsp;
+      Two spaces gap:   &ensp;
+      Four spaces gap:  &emsp; 
+
+    Modification
+    ============
+    08/31/20022 Brian Zoulko    Designed web-page and built a timed code taking quiz.
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Coding Quiz Challenge</title>
+  <link rel="stylesheet" href="./assest/css/reset.css" />
+  <link rel="stylesheet" href="./assest/css/style.css" />
+</head>
+
+<body>
+
+  <section class="outer-shell">
+
+    <header class="title">      
+      <p><a id="view-high-scores" title="High Scores" href="#high-scores">View High Scores</a></p>
+      <p>Time: <a title="Time Left" id="time-left">0</a></p>
+    </header>
+
+    <div class="quiz-area">    
+      <h1>Coding Quiz Challenge</h2>
+      
+      <div class="quiz-body">
+        <textarea readonly id="quiz-msg"
+          placeholder="Try to answer the following code-related questions within the time limit. Keep in mine that incorrect answers will penalize your score/time by ten seconds!"
+          aria-label="Coding Quiz"></textarea>
+      </div>
+      
+      <form>
+        <p id="quiz-status">Questions:&emsp;<a id="quiz-status-time-limit"></a><a id="quiz-status-count-from"></a>&ensp;of&ensp;<a id="quiz-status-count-to"></a></p>
+        <div class="quiz-section">
+          <div class="quiz-questions">
+            <p id="question">What is JavaScript used for?</p>
+          </div>
+        </div>
+      
+        <div id="quiz-selection"></div>
+      </form>      
+    </div>
+            
+    <div class="quiz-footer">
+      <button id="quiz-button" class="btn">Start Quiz</button>
+    </div>
+
+    <div>
+      <p id="high-scores"></p>
+      <ul id="high-scores-list"></ul>
+    </div>
+
+  </section>
+
+  <script src="./assest/js/debug.js"></script>
+  <script src="./assest/js/script.js"></script>
+
+</body>
+
+</html>

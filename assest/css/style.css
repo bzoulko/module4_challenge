@@ -1,0 +1,222 @@
+/*
+    Created:    08/28/2022 
+    Programmer: Brian Zoulko
+    Notes:      Developed this module to assist in a timed coding quiz. User must answer a
+                series of multiple choice questions, each question will get harder, being
+                timed. The finishing time will be a score for the user to beat. After every
+                run through, the highest score will be shown to encourage them the beat it.
+    
+    Modification
+    ============
+    08/28/20022 Brian Zoulko    built css module to help facilitate in portfolio development.
+
+*/
+
+body {
+    font-family: sans-serif;
+}
+
+header {
+    padding: 20px;
+    padding-top: 0px;
+    color: hsl(206, 17%, 28%);
+} 
+
+h1 {
+    font-size: 30px;
+    font-weight: bolder;
+    color: black;
+    text-align: center;
+}
+
+li {
+    list-style: none;
+    margin-top: 20px;
+    display: block;
+}
+
+label {
+    color: black;
+    font-size: 30px;
+    font-weight: bolder;
+    padding-right: 30px;
+}
+
+.outer-shell {
+    padding-top: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.title {
+    display: flex;
+    color: black;
+    justify-content: space-between;
+    font-weight: bolder;
+}
+
+#time-left {
+    color: black;
+    font-size: 32px;
+}
+
+.quiz-area {
+    font-size: 18px;
+    margin: 0 auto;
+    max-width: 800px;
+    padding-top: 2%;
+}
+
+.quiz-body {
+    min-height: auto;
+}
+
+#quiz-status {
+    font-size: 22px;
+}
+
+#quiz-status-time-limit {
+    font-size: 32px;
+}
+
+#quiz-status-count-from {
+    font-size: 32px;
+}
+
+#quiz-status-count-to {
+    font-size: 32px;
+}
+
+#quiz-msg {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    display: block;
+    width: 100%;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 85px;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    resize: none;
+    overflow: hidden;
+}
+
+.quiz-section {
+    background: radial-gradient(circle, rgba(240, 230, 140, 1) 0%, rgba(187, 124, 33, 0.604079131652661) 100%);
+    border: 1px solid #eceff1;
+    border-radius: 8px;
+    box-shadow: rgba(60, 64, 67, 2) 0 1px 2px 0, rgba(60, 64, 67, 0.15) 0 2px 4px 3px;
+    color: white;
+    margin: auto;
+    padding: 20px;
+}
+
+.quiz-questions {
+    color: black;
+    justify-content: space-between;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 72px;
+    padding: 20px 40px;
+}
+
+.answers {
+    color: black;
+    justify-content: space-between;
+    text-align: left;
+    font-size: 22px;    
+}
+
+#quiz-answers {
+    color: black;
+    justify-content: space-between;
+    text-align: left;
+    font-size: 22px;
+    width: 100%;
+}
+
+.quiz-footer::before {
+    content: " ";
+    display: block;
+    margin-top: 100px;
+    width: 100%;
+    background: #e7e9eb;
+    height: 2px;
+}
+
+.quiz-footer::after {
+    content: " ";
+    display: block;
+    clear: both;
+}
+
+/* Button standard look and feel. */
+.btn {
+    margin-top: 15px;
+    border: none;
+    background-color: darkblue;
+    border-radius: 10px;
+    box-shadow: darkblue 0px 1px 6px 0px darkblue 0px 1px 1px 0px;
+    color: hsl(0, 0%, 100%);
+    display: inline-block;   
+    font-size: 22px;
+    line-height: 22px;
+    padding: 14px 34px;
+    cursor: pointer;
+}
+
+/* Button activity - Clicked Look and Feel. */
+button:active {
+    background: #e5e5e5;
+    -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+    -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+    box-shadow: inset 0px 0px 5px #c1c1c1;
+    outline: none;
+}
+
+/* Disabled button look. */
+button[disabled] {
+    cursor: default;
+    background: #c0c7cf;
+}
+
+#high-scores {
+    display: block;
+    margin-top: 60px;
+    font-size: large;
+    width: auto;
+    height: 130%;
+}
+
+#high-scores-list {
+    margin-top: 0px;
+    margin-bottom: 50px;
+    width: auto;
+    background: #e7e9eb;
+    height: 215px;
+    padding: 10px 70px;
+}
+
+@media (max-width: 690px) {
+    .btn {
+        font-size: 1rem;
+        margin: 16px 0px 0px 0px;
+        padding: 10px 15px;
+    }
+
+    #quiz-button {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .btn {
+        font-size: 0.8rem;
+    }
+}
