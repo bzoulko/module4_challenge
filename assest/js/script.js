@@ -93,7 +93,8 @@ updateHighScores(highScores);
 // 09/09/2022 bz - Added logic per graders request.
 var lastGameScore = localStorage.getItem("scores");
 console.log("lastGameScore> " + lastGameScore);
-lastGame.textContent = lastGameScore.replace("-",".....");
+var last = lastGameScore.split("-");
+lastGame.textContent = last.join("    ");
 
 
 /* *******************************
@@ -284,6 +285,19 @@ function sortScores(scoreList) {
     scoreList[x] = items.join("-");
   }
   return(scoreList.sort().reverse());
+}
+
+/*
+  Obtain score detail, separate the detail from the score,
+  append leading zeros if necessary and return to full
+  detail with the score adjusted.
+*/
+function formatScore(scoreWithDetail){
+  var items = scoreWithDetail.split("-");
+  var score = items[0];
+  score = addLeadingZeros(score, scoreSize);
+  items[0] = score;
+  return(items.join("-"));
 }
 
 
