@@ -194,7 +194,7 @@ function startQuiz() {
     enableElement(startQuizBtn, true);
     clearInterval(timeInterval);
     timeLeft = cTime;
-    getInitials()    
+    getInitials();    
   }
 
 }
@@ -205,7 +205,7 @@ function startQuiz() {
 ************************************************************* */
 function getInitials(score) {
   var initials = prompt("Enter your initials to save your score.",'');
-  var date = moment().format("dd/mm/yyyy-hh:mm:ss"); 
+  var date = moment().format("YYYYMMDD-hh:mm:ss"); 
   var scoreDetail = score + "-" + initials + "-" + date;
   localStorage.setItem("scores", scoreDetail);
   return(scoreDetail);
@@ -235,7 +235,7 @@ function checkScore(score) {
 
   // Add winning score to the list.
   if (inTheTop) {
-    list.push(score);
+    list.push(getInitials(score));
   }
 
   // Update local storage with new top scores.
@@ -274,6 +274,7 @@ function sortScores(numList) {
   sortation of scores.
 ******************************************************** */
 function addLeadingZeros(score, size) {
+  console.log("score= " + score)
   score = score.toString();
   while (score.length < size) {
     score = "0" + score;
