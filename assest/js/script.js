@@ -217,8 +217,17 @@ function getInitials(score) {
 ********************************************************** */
 function checkScore(score) {
   // Obtain scores from local storage.
-  var list = getHighScores();
+  var highScores = getHighScores();
+  var list = [];
   var inTheTop = true;  
+
+  // Load only the scores into list array for high score validation.
+  for (var i = 0; i < highScores.length; i++) {
+    var userHighScore = highScores[i].split("-")[0];
+    console.log("highScores[" + i + "]: " + highScores[i]);
+    console.log("userHighScore: " + userHighScore);
+    list.push(userHighScore);
+  }
 
   // Determine if the score made it to the top.
   if (list !== null && list !== '') {
