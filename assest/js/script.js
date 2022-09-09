@@ -193,9 +193,22 @@ function startQuiz() {
     question.textContent = 'G A M E _ O V E R';
     enableElement(startQuizBtn, true);
     clearInterval(timeInterval);
-    timeLeft = cTime;  
+    timeLeft = cTime;
+    getInitials()    
   }
 
+}
+
+
+/* **********************************************************
+  Prompt for users initials and store score in local storage.
+************************************************************* */
+function getInitials(score) {
+  var initials = prompt("Enter your initials to save your score.",'');
+  var date = moment().format("dd/mm/yyyy-hh:mm:ss"); 
+  var scoreDetail = score + "-" + initials + "-" + date;
+  localStorage.setItem("scores", scoreDetail);
+  return(scoreDetail);
 }
 
 
@@ -205,7 +218,7 @@ function startQuiz() {
 function checkScore(score) {
   // Obtain scores from local storage.
   var list = getHighScores();
-  var inTheTop = true;
+  var inTheTop = true;  
 
   // Determine if the score made it to the top.
   if (list !== null && list !== '') {
@@ -226,7 +239,7 @@ function checkScore(score) {
   }
 
   // Update local storage with new top scores.
-  localStorage.setItem("scores", list.join(","));
+  localStorage.setItem("high-scores", list.join(","));
   updateHighScores(list);
 }
 
@@ -235,7 +248,7 @@ function checkScore(score) {
   Get list of High Scores from local storage.
 ********************************************* */
 function getHighScores() {
-  var scores = localStorage.getItem("scores");
+  var scores = localStorage.getItem("high-scores");
 
   if (scores !== null && scores !== '') {
     return (scores.split(","));
