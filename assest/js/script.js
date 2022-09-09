@@ -207,7 +207,7 @@ function startQuiz() {
     enableElement(startQuizBtn, true);
     clearInterval(timeInterval);
     timeLeft = cTime;
-    getInitials();
+    getInitials("lost");
     showLastGameScore();
   }
 
@@ -232,7 +232,7 @@ function showLastGameScore() {
 // 09/09/2022 bz - Created routine per graders request.
 function getInitials(score) {
   var initials = prompt("Enter your initials to save your score.",'');
-  var date = moment().format("YYYYMMDD-hh:mm:ss"); 
+  var date = moment().format("YYYYMMDD-hh:mm:ss");
   var scoreDetail = score + "-" + initials + "-" + date;
   localStorage.setItem("scores", formatScore(scoreDetail));
   return(scoreDetail);
