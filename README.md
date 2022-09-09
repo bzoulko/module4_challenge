@@ -38,12 +38,17 @@ The game starts when the "Start Quiz" button is pressed. The game is over when a
 * Link to Deployed App:  https://github.com/bzoulko/module4_challenge.git
 
 * Initial Game Load
+![image](https://user-images.githubusercontent.com/108200823/189395213-ac527a50-0de3-4611-941d-a82d098ce11e.png)
 
 
 * GAME OVER - No winner.
+![image](https://user-images.githubusercontent.com/108200823/189395258-7c257975-be01-437f-87d6-4abccf685ca9.png)
 
 
 * WINNER 
+![image](https://user-images.githubusercontent.com/108200823/189395327-dac2ed97-7fa2-4b28-999c-45f9a890a1ed.png)
 
 
 * TOP 5 HIGH SCORES
+![image](https://user-images.githubusercontent.com/108200823/189395401-fd4f7377-5110-40c5-80e2-7e6a5778d2d4.png)
+
