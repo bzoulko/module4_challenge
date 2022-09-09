@@ -217,17 +217,8 @@ function getInitials(score) {
 ********************************************************** */
 function checkScore(score) {
   // Obtain scores from local storage.
-  var highScores = getHighScores();
-  var list = [];
+  var list = getHighScores();
   var inTheTop = true;  
-
-  // Load only the scores into list array for high score validation.
-  for (var i = 0; i < highScores.length; i++) {
-    var userHighScore = highScores[i].split("-")[0];
-    console.log("highScores[" + i + "]: " + highScores[i]);
-    console.log("userHighScore: " + userHighScore);
-    list.push(userHighScore);
-  }
 
   // Determine if the score made it to the top.
   if (list !== null && list !== '') {
@@ -270,11 +261,15 @@ function getHighScores() {
   Sort array list of numbers in reverse order, making sure to 
   pad each value with leading zeros to ensure proper sortation.
 *************************************************************** */
-function sortScores(numList) {
-  for (var x = 0; x < numList.length; x++) {
-    numList[x] = addLeadingZeros(numList[x], scoreSize);
+function sortScores(scoreList) {
+  for (var x = 0; x < scoreList.length; x++) {
+    var items = scoreList[x].split("-");
+    var score = items[0];
+    score = addLeadingZeros(score, scoreSize);
+    items[0] = score;
+    scoreList[x] = items.join("-");
   }
-  return(numList.sort().reverse());
+  return(scoreList.sort().reverse());
 }
 
 
