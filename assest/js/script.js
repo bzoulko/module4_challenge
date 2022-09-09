@@ -7,6 +7,9 @@
   Modification
   ============
   09/3/20022 Brian Zoulko    Designed web-page and built a timed code taking quiz.
+  09/9/20022 Brian Zoulko    Added logic to allow the user to enter their initials and 
+                             save their initials. Also display the last score and user
+                             played.
 */
 var quizGameObj = {
   questions: ["What method concatenates all elements in to an array?", 
@@ -47,6 +50,9 @@ var quizStatusTo = document.getElementById("quiz-status-count-to");
 var topScoresCaption = document.getElementById("high-scores");
 var topScoresList = document.getElementById("high-scores-list");
 
+// 09/09/2022 bz - Added per graders request.
+var lastGame = document.getElementById("last-game"); 
+
 // Initial Colors for Questions.
 var questionBackgroundColor = question.style.backgroundColor;
 var questionColor = question.style.color;
@@ -82,6 +88,12 @@ showElement(quizSelection, false);
 topScoresCaption.textContent = `Top ${cTopScoreLimit} High Scores`;
 for (var i = 0; i < cTopScoreLimit; i++) topScoresList.appendChild(liScores[i]); 
 updateHighScores(highScores);
+
+
+// 09/09/2022 bz - Added logic per graders request.
+var lastGameScore = localStorage.getItem("scores");
+console.log("lastGameScore> " + lastGameScore);
+lastGame.textContent = lastGameScore.replace("-",".....");
 
 
 /* *******************************
@@ -203,6 +215,7 @@ function startQuiz() {
 /* **********************************************************
   Prompt for users initials and store score in local storage.
 ************************************************************* */
+// 09/09/2022 bz - Created routine per graders request.
 function getInitials(score) {
   var initials = prompt("Enter your initials to save your score.",'');
   var date = moment().format("YYYYMMDD-hh:mm:ss"); 
@@ -261,6 +274,7 @@ function getHighScores() {
   Sort array list of numbers in reverse order, making sure to 
   pad each value with leading zeros to ensure proper sortation.
 *************************************************************** */
+// 09/09/2022 bz - Updated routine per graders request.
 function sortScores(scoreList) {
   for (var x = 0; x < scoreList.length; x++) {
     var items = scoreList[x].split("-");
