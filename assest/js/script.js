@@ -51,7 +51,9 @@ var topScoresCaption = document.getElementById("high-scores");
 var topScoresList = document.getElementById("high-scores-list");
 
 // 09/09/2022 bz - Added per graders request.
-var lastGame = document.getElementById("last-game"); 
+var lastScore = document.getElementById("last-score"); 
+var lastUser = document.getElementById("last-user"); 
+var lastDate = document.getElementById("last-date"); 
 
 // Initial Colors for Questions.
 var questionBackgroundColor = question.style.backgroundColor;
@@ -91,10 +93,7 @@ updateHighScores(highScores);
 
 
 // 09/09/2022 bz - Added logic per graders request.
-var lastGameScore = localStorage.getItem("scores");
-console.log("lastGameScore> " + lastGameScore);
-var last = lastGameScore.split("-");
-lastGame.textContent = last.join("    ");
+showLastGameScore();
 
 
 /* *******************************
@@ -193,6 +192,7 @@ function startQuiz() {
     enableElement(startQuizBtn, true);
     clearInterval(timeInterval);
     timeLeft = cTime;
+    showLastGameScore();
   }
   
 
@@ -207,11 +207,24 @@ function startQuiz() {
     enableElement(startQuizBtn, true);
     clearInterval(timeInterval);
     timeLeft = cTime;
-    getInitials();    
+    getInitials();
+    showLastGameScore();
   }
 
 }
 
+/* *******************************************
+  Created routine to show the last game score.
+********************************************** */
+function showLastGameScore() {
+  var lastGameScore = localStorage.getItem("scores");
+  if (lastGameScore != null && lastGameScore != '') {
+    var last = lastGameScore.split("-");
+    lastScore.textContent = " ( " + last[0] + " ) ";
+    lastUser.textContent  = " - " + last[1] + " ";
+    lastDate.textContent  = last[2] + " " + last[3];
+  }
+}
 
 /* **********************************************************
   Prompt for users initials and store score in local storage.
@@ -221,7 +234,7 @@ function getInitials(score) {
   var initials = prompt("Enter your initials to save your score.",'');
   var date = moment().format("YYYYMMDD-hh:mm:ss"); 
   var scoreDetail = score + "-" + initials + "-" + date;
-  localStorage.setItem("scores", scoreDetail);
+  localStorage.setItem("scores", formatScore(scoreDetail));
   return(scoreDetail);
 }
 
@@ -278,14 +291,12 @@ function getHighScores() {
 // 09/09/2022 bz - Updated routine per graders request.
 function sortScores(scoreList) {
   for (var x = 0; x < scoreList.length; x++) {
-    var items = scoreList[x].split("-");
-    var score = items[0];
-    score = addLeadingZeros(score, scoreSize);
-    items[0] = score;
-    scoreList[x] = items.join("-");
+    var scoreDetail = formatScore(scoreList[x]);
+    scoreList[x] = scoreDetail;
   }
   return(scoreList.sort().reverse());
 }
+
 
 /*
   Obtain score detail, separate the detail from the score,
